@@ -1,0 +1,286 @@
+!SceneAsset
+Id: 24701c10-85a0-4d22-97a5-6c3271ecea43
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+ChildrenIds:
+    - e5223941-d28f-4db1-9d28-bf426d63e1b1
+    - 69776ccb-9abf-4089-a173-d898c26ad0e0
+    - a31eb0b3-c964-47e9-8acd-bfc3edb9f0d3
+    - e92f6a63-e305-4f96-80b0-8ce4d8d10cce
+    - db5aa3e4-5dbb-479d-9f3d-4f7381a2857c
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! 1ff1c9b8-7a14-4338-b9a1-e4bd7ebcf24e
+        - ref!! 9112d7e8-fdb1-477e-acd6-58dd61783773
+        - ref!! 6c7778b3-439b-4d70-a265-0b61a0c38c99
+        - ref!! 36396dfa-6aa4-4489-a7f5-e45f569bb082
+        - ref!! c3648c46-3fef-42fd-a935-6c2663254381
+        - ref!! c209d00b-1c57-4f36-97b3-bb81facd00a1
+        - ref!! 3113203c-2276-420b-bf0d-fce00d95dc58
+        - ref!! 2b57370f-e61c-41c5-b8c4-df6619837e29
+        - ref!! 88b61bbb-5855-43b2-959d-b5393a6bfe7f
+    Parts:
+        -   Folder: GlobalLights
+            Entity:
+                Id: 1ff1c9b8-7a14-4338-b9a1-e4bd7ebcf24e
+                Name: Directional light
+                Components:
+                    5ab3300ae74fa14a9efcaa1f506407ce: !TransformComponent
+                        Id: 50324630-1cfe-4606-aba2-6bd3dcfb75a5
+                        Position: {X: 1.0, Y: 15.0, Z: 0.0}
+                        Rotation: {X: -0.5540323, Y: 0.212012157, Z: 0.1484525, W: 0.7912401}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    209f95c46d53de41a3dfff661934ae6c: !LightComponent
+                        Id: 3e4128dd-c80b-4781-85a0-d87dd176e32d
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Enabled: true
+                                Filter: !LightShadowMapFilterTypePcf
+                                    FilterSize: Filter5x5
+                                Size: XLarge
+                                DepthRange: {}
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
+                                ComputeTransmittance: false
+                                BiasParameters: {}
+                        Intensity: 5.0
+        -   Entity:
+                Id: 2b57370f-e61c-41c5-b8c4-df6619837e29
+                Name: EasternChunkLoading
+                Components:
+                    7a46f842d9b46727fc1ff8e879e12913: !TransformComponent
+                        Id: 64044078-cf46-4c78-8937-e72b05cf6ec9
+                        Position: {X: -20.0, Y: 1.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0f5a078e7c288bdabbfd0c78f0c7f52a: !RigidbodyComponent
+                        Id: 00eee251-501b-4d85-b1b2-cdf1d7608ee4
+                        CollisionGroup: CustomFilter10
+                        CanCollideWith: CharacterFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            a75542f5626ada7100185d195096639f: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 24.0, Y: 3.0, Z: 24.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    2eac96e8c90a836d8754e3f24fa1a99e: !Gameplay.SceneStreaming,ThereBeBombs.Game
+                        Id: 5b6e2307-e465-4da0-8d84-b9624682ef9f
+                        Url: EasternChunk
+                        Trigger: !RigidbodyComponent ref!! 00eee251-501b-4d85-b1b2-cdf1d7608ee4
+        -   Entity:
+                Id: 3113203c-2276-420b-bf0d-fce00d95dc58
+                Name: SouthernChunkLoading
+                Components:
+                    7a46f842d9b46727fc1ff8e879e12913: !TransformComponent
+                        Id: a70153d4-f35b-4557-a19d-849afaf51283
+                        Position: {X: 0.0, Y: 1.0, Z: -20.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0f5a078e7c288bdabbfd0c78f0c7f52a: !RigidbodyComponent
+                        Id: 52032222-a039-47be-9d21-4a6c3adca582
+                        CollisionGroup: CustomFilter10
+                        CanCollideWith: CharacterFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            a75542f5626ada7100185d195096639f: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 24.0, Y: 3.0, Z: 24.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    2eac96e8c90a836d8754e3f24fa1a99e: !Gameplay.SceneStreaming,ThereBeBombs.Game
+                        Id: 276ff6f0-dcc0-4945-b13e-f2dd2664b4e0
+                        Url: SouthernChunk
+                        Trigger: !RigidbodyComponent ref!! 52032222-a039-47be-9d21-4a6c3adca582
+        -   Entity:
+                Id: 36396dfa-6aa4-4489-a7f5-e45f569bb082
+                Name: GameLogic
+                Components:
+                    43ce4968fb19bf47ae1229cc663d55f5: !TransformComponent
+                        Id: 5f11b257-7dc1-4fe5-ab3a-b2f0c779f822
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+        -   Entity:
+                Id: 6c7778b3-439b-4d70-a265-0b61a0c38c99
+                Name: Highlight
+                Components:
+                    39c709a832f3f340b936f0c83b068505: !TransformComponent
+                        Id: 66bd1a68-5d3c-494a-adb3-b8a59da1e9db
+                        Position: {X: 0.0, Y: 20.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    1368fd29754b5e48a7a6da94c8c5fe8a: !ModelComponent
+                        Id: a8977b74-0f40-4447-a985-adc59698f2de
+                        Model: 5ecdcaa1-6deb-4b6c-b787-32692519a9e4:Cube
+                        IsShadowCaster: false
+                        Materials:
+                            8f46c33571e26d4bb19356e1ee060013~0: b722814f-fc82-4a32-b369-39ca68aec390:HighlightMaterial
+        -   Folder: null
+            Entity:
+                Id: 88b61bbb-5855-43b2-959d-b5393a6bfe7f
+                Name: WesternChunkLoading
+                Components:
+                    7a46f842d9b46727fc1ff8e879e12913: !TransformComponent
+                        Id: ea3a6d2e-2718-4653-9884-6b45bbed38d7
+                        Position: {X: 20.0, Y: 1.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0f5a078e7c288bdabbfd0c78f0c7f52a: !RigidbodyComponent
+                        Id: 06ed6375-b5de-40e6-88e8-16ba15e8f474
+                        CollisionGroup: CustomFilter10
+                        CanCollideWith: CharacterFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            a75542f5626ada7100185d195096639f: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 24.0, Y: 3.0, Z: 24.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    2eac96e8c90a836d8754e3f24fa1a99e: !Gameplay.SceneStreaming,ThereBeBombs.Game
+                        Id: 0d6efc2a-7d05-4295-aa27-1438d51972c0
+                        Url: WesternChunk
+                        Trigger: !RigidbodyComponent ref!! 06ed6375-b5de-40e6-88e8-16ba15e8f474
+        -   Folder: GlobalLights
+            Entity:
+                Id: 9112d7e8-fdb1-477e-acd6-58dd61783773
+                Name: Skybox
+                Components:
+                    6e987687711b70418c85dff5a9bbc2ec: !TransformComponent
+                        Id: 15cb07af-f17c-4f4d-97e7-40dde615753e
+                        Position: {X: 0.0, Y: 15.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    197b9ba9a8d24847a1b8d7261d35f329: !LightComponent
+                        Id: 20568876-3fe2-4602-b415-80760464236a
+                        Type: !LightSkybox
+                            Skybox: 410f0b51-cba8-4a55-a4a3-4517600c5682:Skybox
+                        Intensity: 1.5
+                    aa0620582b7241f8b026bafcf0a07f05: !BackgroundComponent
+                        Id: d754d852-ea85-46ee-8b20-67625d64e7af
+                        Texture: a692677f-2cb0-4b9e-a22b-d3ea46c268ff:Skybox Texture
+                        Intensity: 3.0
+        -   Entity:
+                Id: c209d00b-1c57-4f36-97b3-bb81facd00a1
+                Name: NorthernChunkLoading
+                Components:
+                    7a46f842d9b46727fc1ff8e879e12913: !TransformComponent
+                        Id: b0ce34dd-880a-41b6-b763-4c2fd01e420b
+                        Position: {X: 0.0, Y: 1.0, Z: 20.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0f5a078e7c288bdabbfd0c78f0c7f52a: !RigidbodyComponent
+                        Id: 34034a61-5c72-4401-8c28-f112ab89f36b
+                        CollisionGroup: CustomFilter10
+                        CanCollideWith: CharacterFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            a75542f5626ada7100185d195096639f: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 24.0, Y: 3.0, Z: 24.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    2eac96e8c90a836d8754e3f24fa1a99e: !Gameplay.SceneStreaming,ThereBeBombs.Game
+                        Id: 1f7da7c0-2b66-4b6b-b5c2-924baea7652c
+                        Url: NorthernChunk
+                        Trigger: !RigidbodyComponent ref!! 34034a61-5c72-4401-8c28-f112ab89f36b
+        -   Entity:
+                Id: c3648c46-3fef-42fd-a935-6c2663254381
+                Name: CentralChunkLoading
+                Components:
+                    7a46f842d9b46727fc1ff8e879e12913: !TransformComponent
+                        Id: 58ac5c8b-c02a-419c-bcda-8c4c70138524
+                        Position: {X: 0.0, Y: 1.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0f5a078e7c288bdabbfd0c78f0c7f52a: !RigidbodyComponent
+                        Id: 78b1ff69-cfed-4a09-8c1b-eb12cbf817b1
+                        CollisionGroup: CustomFilter10
+                        CanCollideWith: CharacterFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            a75542f5626ada7100185d195096639f: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 24.0, Y: 3.0, Z: 24.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    2eac96e8c90a836d8754e3f24fa1a99e: !Gameplay.SceneStreaming,ThereBeBombs.Game
+                        Id: 399f44ea-00ce-44fc-80ff-474e65ec1c9b
+                        Url: CentralChunk
+                        Trigger: !RigidbodyComponent ref!! 78b1ff69-cfed-4a09-8c1b-eb12cbf817b1

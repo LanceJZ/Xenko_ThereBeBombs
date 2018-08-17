@@ -1,0 +1,70 @@
+!MaterialAsset
+Id: 36009fb7-8c50-48e4-8209-3bb15bf3ad43
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    Surface: !MaterialNormalMapFeature
+        NormalMap: !ComputeTextureColor
+            Texture: 3a8e2fb3-aa72-4e8f-9002-1dba1ee70ee6:Textures/xenko_box_normals
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        IsXYNormal: true
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeFloat
+            Value: 0.5
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeColor
+            Value: {R: 0.544, G: 0.030599989, B: 0.128390327, A: 1.0}
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialSpecularMapFeature
+        SpecularMap: !ComputeTextureColor
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        Intensity: !ComputeFloat
+            Value: 0.0
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Occlusion: !MaterialOcclusionMapFeature
+        AmbientOcclusionMap: !ComputeTextureScalar
+            Texture: cfc89946-a302-47a5-afe3-d9effd9f2f64:Textures/xenko_box_occlusion
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+        DirectLightingFactor: !ComputeFloat
+            Value: 0.0
+        CavityMap: !ComputeTextureScalar
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+        DiffuseCavity: !ComputeFloat
+            Value: 1.0
+        SpecularCavity: !ComputeFloat
+            Value: 1.0
+    Emissive: !MaterialEmissiveMapFeature
+        EmissiveMap: !ComputeBinaryColor
+            Operator: Multiply
+            LeftChild: !ComputeTextureColor
+                Texture: e6085ed0-fb0d-43c0-9290-60a615f465fb:Textures/xenko_box_mask
+                FallbackValue:
+                    Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                Scale: {X: 1.0, Y: 1.0}
+                Offset: {X: 0.0, Y: 0.0}
+                Swizzle: null
+            RightChild: !ComputeFloat4
+                Value: {X: 5.0, Y: 9.0, Z: 50.0, W: 5.0}
+        Intensity: !ComputeFloat
+            Value: 1.0
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

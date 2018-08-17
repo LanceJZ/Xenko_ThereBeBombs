@@ -1,0 +1,52 @@
+!PrefabAsset
+Id: 85eea446-ff46-449b-be94-15fe2d0c1134
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 879dceae-51d6-429f-9285-8359042d00c6
+    Parts:
+        -   Entity:
+                Id: 879dceae-51d6-429f-9285-8359042d00c6
+                Name: Box5x2x1
+                Components:
+                    5779f081cd637449a5eb5b471d5e12b1: !TransformComponent
+                        Id: 45cb7a98-4491-40cd-a8cf-a5c8a9f1be8b
+                        Position: {X: 2.5, Y: 1.0, Z: 0.5}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8e6a71186a468a10a6c2679b448de728: !ModelComponent
+                        Id: ff2d9b50-3f90-46c7-ae0d-fa2cb08728c0
+                        Model: bde9799a-6a85-456f-9c0e-e8bdba084d2c:Models/Box5x2x1
+                        Materials:
+                            7c654d4d4705199d40b023709cde070b~0: 12e57e2e-6d97-4c41-a790-8619c113e51f:Materials/GridMTStairs
+                    2c8a8cb185e576b7a82a5713062c2f48: !ThereBeBombs.Gameplay.Trigger,ThereBeBombs.Game
+                        Id: 4ccf8365-b227-478d-9e18-191817a41833
+                        TriggerCondition: StartOnly
+                    b4b66ef1fe887c8473a188cf7b6d037b: !Gameplay.Door.DoorScript,ThereBeBombs.Game
+                        Id: 36b56853-406d-4947-a18e-27d5e370e88e
+                        Trigger: ref!! 4ccf8365-b227-478d-9e18-191817a41833
+                    551883224849b9daaf69017293bece5e: !RigidbodyComponent
+                        Id: 29c5323c-f5e8-4a33-9ea3-88f2631a4dcf
+                        CollisionGroup: CustomFilter3
+                        CanSleep: false
+                        Restitution: 100.0
+                        Friction: 0.0
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        IsKinematic: true
+                        Mass: 100.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            c4d4933b1153b15bf44adb3c862bd7e9: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 5.0, Y: 2.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}

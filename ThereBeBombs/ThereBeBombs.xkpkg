@@ -1,0 +1,58 @@
+!Package
+Id: 61ee8950-22dd-4cc4-8451-f90277dedeb7
+SerializedVersion: {Assets: 0.0.4}
+Meta:
+    Name: ThereBeBombs
+    Version: 1.0.0.0
+    Authors: []
+    Owners: []
+    RootNamespace: ThereBeBombs
+    Dependencies:
+        -   Name: Xenko
+            Version: 3.0.0.3
+            RootAssets: []
+LocalDependencies: []
+Profiles:
+    -   Name: Shared
+        Platform: Shared
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Shared
+            -   Path: ThereBeBombs.Game/Effects
+        ResourceFolders: []
+        OutputGroupDirectories: {}
+        ProjectReferences:
+            -   Id: a582b669-f038-4490-9f65-316ddad8db85
+                Location: ThereBeBombs.Game/ThereBeBombs.Game.csproj
+                Type: Library
+    -   Name: Windows
+        Platform: Windows
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Windows
+        ResourceFolders: []
+        OutputGroupDirectories: {}
+        ProjectReferences:
+            -   Id: 63e5da24-3f3a-4647-977a-36a9c9efa58e
+                Location: ThereBeBombs.Windows/ThereBeBombs.Windows.csproj
+                Type: Executable
+    -   Name: Android
+        Platform: Android
+        InheritProfiles: []
+        AssetFolders:
+            -   Path: Assets/Android
+        ResourceFolders: []
+        OutputGroupDirectories: {}
+        ProjectReferences:
+            -   Id: f3d2fb18-2c9c-4c24-96ab-aec33d39e633
+                Location: ThereBeBombs.Android/ThereBeBombs.Android.csproj
+                Type: Executable
+ExplicitFolders: []
+Bundles: []
+TemplateFolders: []
+RootAssets:
+    - 69776ccb-9abf-4089-a173-d898c26ad0e0:CentralChunk
+    - a31eb0b3-c964-47e9-8acd-bfc3edb9f0d3:WesternChunk
+    - db5aa3e4-5dbb-479d-9f3d-4f7381a2857c:SouthernChunk
+    - e5223941-d28f-4db1-9d28-bf426d63e1b1:EasternChunk
+    - e92f6a63-e305-4f96-80b0-8ce4d8d10cce:NorthernChunk

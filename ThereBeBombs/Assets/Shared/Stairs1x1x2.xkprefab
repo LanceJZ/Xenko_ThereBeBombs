@@ -1,0 +1,32 @@
+!PrefabAsset
+Id: 6b0b66cf-dff0-423a-b788-bc4d3ad74992
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! a3c27349-8a8f-4d3b-80f9-6696ae2f350d
+    Parts:
+        -   Entity:
+                Id: a3c27349-8a8f-4d3b-80f9-6696ae2f350d
+                Name: Stairs1x1x2
+                Components:
+                    b17ec313a29dd685e41c6db8c4cc11ad: !TransformComponent
+                        Id: 0406e512-6fab-499d-b16e-2d6c72c9fef3
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    17e94817116c2705cc0a9d860cd4976f: !ModelComponent
+                        Id: eda3c1ce-83e1-4c49-aac1-16776e85c1a6
+                        Model: 1b7db259-b371-454a-82ea-c1103b1caaf4:Models/Stairs1x1x2
+                        Materials: {}
+                    35fd1e6278484ad1b10464cc29602eaf: !StaticColliderComponent
+                        Id: 874e0b0b-0642-4679-8d0d-090050c97cb9
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes: {}

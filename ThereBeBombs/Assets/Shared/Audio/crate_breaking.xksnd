@@ -1,0 +1,8 @@
+!Sound
+Id: 2593380e-fd44-4cc0-af7a-e69458974720
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Audio/crate_breaking.wav
+CompressionRatio: 15
+StreamFromDisk: false
+Spatialized: true

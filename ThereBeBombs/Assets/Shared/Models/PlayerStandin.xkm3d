@@ -1,0 +1,15 @@
+!Model
+Id: 4ad328f9-6861-4280-b013-9ec669ef5cf1
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Models/PlayerStandin.obj
+Skeleton: null
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    318d8d36432ff4dcf9a57e402027ae13:
+        Name: DefaultMaterial
+        MaterialInstance:
+            Material: 26f9ffe1-353a-485f-81c3-bd110911e104:Materials/Voxel Material
+Modifiers: {}
+~SourceHashes:
+    5a583b5038dcd48411cc728eac724e2a~../../../Resources/Models/PlayerStandin.obj: b04cbc7d5d4d0b75d72e14ed07cac5bb

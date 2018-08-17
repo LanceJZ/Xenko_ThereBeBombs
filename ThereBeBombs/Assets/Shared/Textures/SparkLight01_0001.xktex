@@ -1,0 +1,9 @@
+!Texture
+Id: 6eafb6e2-0921-4d1b-b65c-9fc6c5e8ea9e
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/SparkLight01.png
+IsCompressed: false
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+IsStreamable: false

@@ -1,0 +1,8 @@
+!Texture
+Id: 5474e899-07d6-410a-93a9-cc524f82074a
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/Explosion/EXP001.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+IsStreamable: false

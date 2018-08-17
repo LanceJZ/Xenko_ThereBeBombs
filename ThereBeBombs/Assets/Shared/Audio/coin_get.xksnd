@@ -1,0 +1,8 @@
+!Sound
+Id: e5ab9873-8e1e-4f81-9c55-c897b7047a8d
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Audio/coin_get.wav
+CompressionRatio: 15
+StreamFromDisk: false
+Spatialized: false

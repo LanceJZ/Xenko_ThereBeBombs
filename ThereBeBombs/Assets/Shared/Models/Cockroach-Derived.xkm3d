@@ -1,0 +1,16 @@
+!Model
+Id: f90b5c34-ce12-40c6-b545-dd530ee58dd0
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Archetype: 6ec09f41-1aa5-41f6-8dbb-2e4445e6f795:Models/Cockroach
+Source: ../../../Resources/Models/Cockroach.obj
+Skeleton: null
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    1599f4ff1b95cc180f47d11f3a7afc46*:
+        Name: DefaultMaterial
+        MaterialInstance:
+            Material: 26f9ffe1-353a-485f-81c3-bd110911e104:Materials/Voxel Material
+Modifiers: {}
+~SourceHashes:
+    7d5d70574f31265354ee48964867b9ec~../../../Resources/Models/Cockroach.obj: 5defa941c871c9ff07d93aa1d89e6b9d

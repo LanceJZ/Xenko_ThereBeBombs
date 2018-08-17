@@ -1,0 +1,7 @@
+!Texture
+Id: 2e8c8eea-8185-49c8-a876-ee03984c464d
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Models/PlayerStandin.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

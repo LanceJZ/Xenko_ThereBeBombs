@@ -1,0 +1,151 @@
+!SceneAsset
+Id: a31eb0b3-c964-47e9-8acd-bfc3edb9f0d3
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+ChildrenIds: []
+Parent: 24701c10-85a0-4d22-97a5-6c3271ecea43:DynamicScene
+Offset: {X: 20.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! 129e968e-fbac-43fb-ab69-f79174e22621
+        - ref!! 280eba89-d140-4c2f-b8c1-ad9fb3273e60
+        - ref!! 3ca8812d-29c6-485a-b7c2-b1def1734bdf
+        - ref!! 196fe837-f83c-4cc1-a3eb-006e0780f3ce
+        - ref!! d2e42a5f-b5dc-41c8-9cbb-ea37037707a4
+    Parts:
+        -   Entity:
+                Id: 129e968e-fbac-43fb-ab69-f79174e22621
+                Name: GridBase10x10
+                Components:
+                    4eecb3c27affe3478bcc584553d59e41: !TransformComponent
+                        Id: 67bcf00a-0224-4f7d-ab0a-723fca5ecbca
+                        Position*: {X: 5.0, Y: 0.0, Z: -5.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    7c901dfed21c864283aa0639481520b1: !ModelComponent
+                        Id: 416f60d0-f5a9-45a0-99ee-351a8c600e53
+                        Model: f058b733-8999-40cc-a079-9c7e40aab791:Models/GridBase10x10
+                        Materials: {}
+                    e892de73aae78041aa74ca19b0b9f867: !StaticColliderComponent
+                        Id: 1424861b-8495-4fcb-8ad5-f3279a79a648
+                        CollisionGroup: CustomFilter1
+                        CanSleep: true
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            6f9d4e7e5147bf47ad510aa5f27d122b: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 10.0, Y: 0.3, Z: 10.0}
+                                LocalOffset: {X: 0.0, Y: -0.15, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Folder: null
+            Entity:
+                Id: 196fe837-f83c-4cc1-a3eb-006e0780f3ce
+                Name: GridBase10x10
+                Components:
+                    4eecb3c27affe3478bcc584553d59e41: !TransformComponent
+                        Id: 7f4dced1-f290-45cb-aa01-d025cfab2263
+                        Position*: {X: -5.0, Y: 0.0, Z: 5.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    7c901dfed21c864283aa0639481520b1: !ModelComponent
+                        Id: f479c2d7-2b19-45e1-8d8a-6513e8c9f08f
+                        Model: f058b733-8999-40cc-a079-9c7e40aab791:Models/GridBase10x10
+                        Materials: {}
+                    e892de73aae78041aa74ca19b0b9f867: !StaticColliderComponent
+                        Id: 1e82a08b-5423-4bdc-95bb-5be0ebdb3098
+                        CollisionGroup: CustomFilter1
+                        CanSleep: true
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            6f9d4e7e5147bf47ad510aa5f27d122b: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 10.0, Y: 0.3, Z: 10.0}
+                                LocalOffset: {X: 0.0, Y: -0.15, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Folder: null
+            Entity:
+                Id: 280eba89-d140-4c2f-b8c1-ad9fb3273e60
+                Name: GridBase10x10
+                Components:
+                    4eecb3c27affe3478bcc584553d59e41: !TransformComponent
+                        Id: e6e52f72-7aae-42fb-9072-d4db6d2ad3d2
+                        Position*: {X: -5.0, Y: 0.0, Z: -5.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    7c901dfed21c864283aa0639481520b1: !ModelComponent
+                        Id: 21ff51ee-5a0d-4c2f-b996-4a8910c7bd94
+                        Model: f058b733-8999-40cc-a079-9c7e40aab791:Models/GridBase10x10
+                        Materials: {}
+                    e892de73aae78041aa74ca19b0b9f867: !StaticColliderComponent
+                        Id: 1b9a1fd3-f9d0-4f27-a99b-19823e28467b
+                        CollisionGroup: CustomFilter1
+                        CanSleep: true
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            6f9d4e7e5147bf47ad510aa5f27d122b: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 10.0, Y: 0.3, Z: 10.0}
+                                LocalOffset: {X: 0.0, Y: -0.15, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Folder: null
+            Entity:
+                Id: 3ca8812d-29c6-485a-b7c2-b1def1734bdf
+                Name: GridBase10x10
+                Components:
+                    4eecb3c27affe3478bcc584553d59e41: !TransformComponent
+                        Id: f8cd28f2-045b-4718-bf9a-4b9b1b04f942
+                        Position*: {X: 5.0, Y: 0.0, Z: 5.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    7c901dfed21c864283aa0639481520b1: !ModelComponent
+                        Id: 9e41e9e9-4e1a-4026-bcdb-7727cb582fd5
+                        Model: f058b733-8999-40cc-a079-9c7e40aab791:Models/GridBase10x10
+                        Materials: {}
+                    e892de73aae78041aa74ca19b0b9f867: !StaticColliderComponent
+                        Id: 401c5dc2-acbe-4a77-a0e2-d3a17d6a851f
+                        CollisionGroup: CustomFilter1
+                        CanSleep: true
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            6f9d4e7e5147bf47ad510aa5f27d122b: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 10.0, Y: 0.3, Z: 10.0}
+                                LocalOffset: {X: 0.0, Y: -0.15, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
+                Id: d2e42a5f-b5dc-41c8-9cbb-ea37037707a4
+                Name: Navigation bounding box
+                Components:
+                    b165f046bfbfea5b222bd766c250a3e1: !TransformComponent
+                        Id: 3a541b86-27bd-4195-a5e6-e4e65068eff2
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    81483b085694cb985a403d7c2ab113a9: !Xenko.Navigation.NavigationBoundingBoxComponent,Xenko.Navigation
+                        Id: 393987e8-088c-499a-8eda-8af0fc97235a
+                        Size: {X: 12.0, Y: 4.0, Z: 12.0}

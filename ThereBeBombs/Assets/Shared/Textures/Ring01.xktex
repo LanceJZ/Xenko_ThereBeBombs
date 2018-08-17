@@ -1,0 +1,8 @@
+!Texture
+Id: 34d92c72-17d2-4b6d-834c-310055e69b85
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: ../../../Resources/Textures/Ring01.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+IsStreamable: false

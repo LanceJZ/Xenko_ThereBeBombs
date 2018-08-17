@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net461;monoandroid50</TargetFrameworks>
+    <RootNamespace>ThereBeBombs</RootNamespace>
+    <AssemblyVersion>1.32.16.0</AssemblyVersion>
+    <FileVersion>0816.228.8.0134</FileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xenko" Version="3.0.0.3">
+      <PrivateAssets>contentfiles;analyzers</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>

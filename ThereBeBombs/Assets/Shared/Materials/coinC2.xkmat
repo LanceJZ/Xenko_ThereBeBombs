@@ -1,0 +1,46 @@
+!MaterialAsset
+Id: d9212ebd-6441-4203-b6b1-a58b5d355b1f
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    Surface: !MaterialNormalMapFeature
+        NormalMap: !ComputeTextureColor
+            Texture: 09dc4bd9-4bc9-4e96-b4d7-cbdbb77ee1ec:Textures/xenko_coin_c_normals
+            FallbackValue:
+                Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+        IsXYNormal: true
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeFloat
+            Value: 0.75
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeColor
+            Value: {R: 0.9843137, G: 0.8745098, B: 0.349019617, A: 1.0}
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialMetalnessMapFeature
+        MetalnessMap: !ComputeFloat
+            Value: 1.0
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Occlusion: !MaterialOcclusionMapFeature
+        AmbientOcclusionMap: !ComputeTextureScalar
+            Texture: 08bc68ab-641d-46bf-aa16-e5761fffd291:Textures/xenko_coin_c_occlusion
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+        DirectLightingFactor: !ComputeFloat
+            Value: 0.0
+        CavityMap: null
+        DiffuseCavity: !ComputeFloat
+            Value: 0.0
+        SpecularCavity: !ComputeFloat
+            Value: 1.0
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

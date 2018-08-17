@@ -1,0 +1,82 @@
+!PrefabAsset
+Id: ab596c15-172f-4ad7-abb1-e8ad2a21482d
+SerializedVersion: {Xenko: 2.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 10e3c23d-f2da-40dc-8317-dffbd178d4c6
+    Parts:
+        -   Entity:
+                Id: 10e3c23d-f2da-40dc-8317-dffbd178d4c6
+                Name: Center double Stairs
+                Components:
+                    720948e6fcf5633a49784df9aae3d2e5: !TransformComponent
+                        Id: 326c47dc-d381-461a-93d6-5fe81bcc9c76
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            d1155671c2dfe078e8ef5925e8d0dacd: ref!! 7ac30b2f-ec91-432a-97ce-4933bc35efdc
+                            d78a140aa9979e64eaea076f5e653a1b: ref!! 3bdbff88-c2c0-4a6b-b998-e3345093ccb3
+        -   Entity:
+                Id: 27fcbfd8-c958-456f-8f96-be31f35a688d
+                Name: Stairs1x1x2
+                Components:
+                    b17ec313a29dd685e41c6db8c4cc11ad: !TransformComponent
+                        Id: 7ac30b2f-ec91-432a-97ce-4933bc35efdc
+                        Position*: {X: -0.5, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale*: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    17e94817116c2705cc0a9d860cd4976f: !ModelComponent
+                        Id: 3797553e-520f-416c-b188-4d73fb58ec9f
+                        Model: 1b7db259-b371-454a-82ea-c1103b1caaf4:Models/Stairs1x1x2
+                        Materials: {}
+                    35fd1e6278484ad1b10464cc29602eaf: !StaticColliderComponent
+                        Id: 75e59087-5313-487b-81a8-8798d69ab030
+                        CollisionGroup*: CustomFilter1
+                        CanSleep*: true
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            ca3613f5afae90c6241a812a31daef82*: !ColliderShapeAssetDesc
+                                Shape: e2562f5b-b9e5-4cea-ae79-535e81c8c777:CollisionMeshes/Stairs
+            Base:
+                BasePartAsset: 6b0b66cf-dff0-423a-b788-bc4d3ad74992:Stairs1x1x2
+                BasePartId: a3c27349-8a8f-4d3b-80f9-6696ae2f350d
+                InstanceId: ada3b0d3-f18c-4ba4-bb45-ddfd4137e228
+        -   Entity:
+                Id: acfef419-6790-4bc4-907c-6700530bf99e
+                Name: Stairs1x1x2
+                Components:
+                    b17ec313a29dd685e41c6db8c4cc11ad: !TransformComponent
+                        Id: 3bdbff88-c2c0-4a6b-b998-e3345093ccb3
+                        Position*: {X: 0.5, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale*: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    17e94817116c2705cc0a9d860cd4976f: !ModelComponent
+                        Id: 0ad77adc-8bc5-470a-8306-514117249668
+                        Model: 1b7db259-b371-454a-82ea-c1103b1caaf4:Models/Stairs1x1x2
+                        Materials: {}
+                    35fd1e6278484ad1b10464cc29602eaf: !StaticColliderComponent
+                        Id: 3e160b1d-dd64-4fd1-a98d-56aa32e673d0
+                        CollisionGroup*: CustomFilter1
+                        CanSleep*: true
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            ca3613f5afae90c6241a812a31daef82*: !ColliderShapeAssetDesc
+                                Shape: e2562f5b-b9e5-4cea-ae79-535e81c8c777:CollisionMeshes/Stairs
+            Base:
+                BasePartAsset: 6b0b66cf-dff0-423a-b788-bc4d3ad74992:Stairs1x1x2
+                BasePartId: a3c27349-8a8f-4d3b-80f9-6696ae2f350d
+                InstanceId: 72f823b0-d2cc-4751-9395-16a07e9c6b31
