@@ -168,7 +168,6 @@ Hierarchy:
         - ref!! fa96eed5-1662-43a8-9a86-ac51c723e863
         - ref!! 7988c5a0-86e7-464c-8a16-00a8371874b7
         - ref!! 4f8137e0-026e-4c52-956c-90bacb0540c3
-        - ref!! 1d43196f-a02c-422f-a997-41c69353c241
     Parts:
         -   Entity:
                 Id: 0012425a-8167-4220-b4f9-5a50ab7c9538
@@ -468,35 +467,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             a2d6ca1adcf6ec41a4c7d29eb46ea480: ref!! cf0d3930-8de4-49ae-b603-0527f33498fc
-        -   Entity:
-                Id: 06fbf57d-eddf-4c6e-8155-162647be1345
-                Name: CollisionWall
-                Components:
-                    81e049a26ff49a468daa04fa529c1955: !TransformComponent
-                        Id: 8bea9148-a050-42a3-a144-762f769efb3f
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    b5c346a60c652a4b9b497d243845df03: !StaticColliderComponent
-                        Id: 5386a463-94c4-4484-9a36-1f1ca6c3ee42
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: false
-                        ColliderShapes:
-                            d1515cec847a6046ab7daa4368a533f7: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-            Base:
-                BasePartAsset: c3cdbc1b-a508-4a6d-b125-f6b9e6a96948:LootBox
-                BasePartId: 9e2837fb-0640-4774-9d3b-bbf81562d9aa
-                InstanceId: 5a6a88e9-6daf-4c53-b2d6-676b7812191c
         -   Folder: Platform/Grid
             Entity:
                 Id: 0725de5a-db71-407c-ad52-506b693c932e
@@ -930,7 +900,7 @@ Hierarchy:
                         Model: 4ad328f9-6861-4280-b013-9ec669ef5cf1:Models/PlayerStandin
                         Materials: {}
             Base:
-                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter New
+                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter
                 BasePartId: ba871571-a102-441c-97cf-8de28bb4cd38
                 InstanceId: 06b27a01-d659-4f8b-88f4-aef2437dc2fb
         -   Entity:
@@ -1163,17 +1133,6 @@ Hierarchy:
                 BasePartId: 27fcbfd8-c958-456f-8f96-be31f35a688d
                 InstanceId: 6869e389-2366-4660-a70a-8eec44b6bef4
         -   Entity:
-                Id: 1d43196f-a02c-422f-a997-41c69353c241
-                Name: LootBox
-                Components:
-                    c1ce07acacd46a1cd50bcec5c4ccc66f: !TransformComponent
-                        Id: baec4975-d382-4abb-9919-34b099e3a4d8
-                        Position: {X: -23.46261, Y: 0.5, Z: 33.452446}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            1bc38f7401df0a1f3a15f36baf0acd8c: ref!! 17e3efc6-49a2-4b1b-972f-01902bb67a4b
-        -   Entity:
                 Id: 1ddb0a19-0448-4ca0-8fee-951596eeace5
                 Name: GridBase10x10
                 Components:
@@ -1393,7 +1352,7 @@ Hierarchy:
                 InstanceId: 63036a44-9cf0-4605-af9f-e003ef048812
         -   Entity:
                 Id: 2399c011-3b6b-477f-b47f-c67d5abac3a8
-                Name: PunchCollision
+                Name: AttackCollision
                 Components:
                     651acbbf06fe12468058e1f473b74a32: !TransformComponent
                         Id: bfcb1a65-fe06-4612-8058-e1f473b74a32
@@ -1403,7 +1362,7 @@ Hierarchy:
                         Children: {}
                     13f15cf5c64fb5429ce1a586368259bd: !RigidbodyComponent
                         Id: 231049e9-cbfb-4572-8f7e-7ca5ad96ec6f
-                        CollisionGroup: CharacterFilter
+                        Enabled: false
                         CanCollideWith: CustomFilter2
                         CanSleep: false
                         Restitution: 0.0
@@ -1425,7 +1384,7 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
             Base:
-                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter New
+                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter
                 BasePartId: 435b4877-9f7a-4a15-b723-903ee88acba7
                 InstanceId: 06b27a01-d659-4f8b-88f4-aef2437dc2fb
         -   Folder: Platform/Walls
@@ -2639,35 +2598,50 @@ Hierarchy:
                         DestinationThreshold: 0.2
                         CornerSlowdown: 0.6
                         DestinationSlowdown: 0.4
-                        BiteCollision: ref!! cd1abf07-412f-4430-a6da-5b57190583ab
                         AttackDistance: 1.0
                         AttackCooldown: 0.65
-                        Trigger: ref!! 59317ab9-b398-4d26-a54e-c3d1ddb20634
-                    981ba49f3302b0a2f2d2205440ae1f5c: !ThereBeBombs.Gameplay.Trigger,ThereBeBombs.Game
-                        Id: 59317ab9-b398-4d26-a54e-c3d1ddb20634
-                        TriggerCondition: StartOnly
-                    bcdbc7df6ba19a9af841da605a4ab72b: !RigidbodyComponent
-                        Id: 4f17021f-8fde-4367-9ead-85a02b3563a1
+                    7af154bd6429ca263733b714aca03266: !CharacterComponent
+                        Id: 1c947a6f-03ec-4899-829c-1ef785aa2420
                         CollisionGroup: CustomFilter4
                         CanSleep: false
                         Restitution: 0.0
                         Friction: 0.5
-                        RollingFriction: 3.0
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: -10.0
+                        ColliderShapes:
+                            7fb3030484fd845010732f5bd61515c4: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 8.0, Y: 4.0, Z: 24.0}
+                                LocalOffset: {X: 0.0, Y: 2.5, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    a8f9a225404233d520f39f9e83aab796: !RigidbodyComponent
+                        Id: f5672b30-f6e6-4758-9a12-0c0b6b0738c7
+                        Enabled: false
+                        CollisionGroup: CustomFilter4
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
                         CcdMotionThreshold: 0.0
                         CcdSweptSphereRadius: 0.0
                         IsTrigger: false
                         IsKinematic: false
-                        Mass: 0.5
+                        Mass: 1.0
                         LinearDamping: 0.0
                         AngularDamping: 0.0
                         OverrideGravity: false
                         Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
                         NodeName: null
                         ColliderShapes:
-                            c05d5caa7970ac10fdd87ba2fbce6d70: !BoxColliderShapeDesc
+                            7f865ec28a4e1f68c7f994a8703296fb: !BoxColliderShapeDesc
                                 Is2D: false
                                 Size: {X: 8.0, Y: 4.0, Z: 24.0}
-                                LocalOffset: {X: 0.0, Y: 2.5, Z: 0.0}
+                                LocalOffset: {X: 0.0, Y: 2.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
             Base:
                 BasePartAsset: d4c604cc-ac92-4d33-b2d3-07bde36811c9:Cockroach
@@ -3256,7 +3230,6 @@ Hierarchy:
                         DestinationThreshold: 0.2
                         CornerSlowdown: 0.6
                         DestinationSlowdown: 0.4
-                        PunchCollision: ref!! 231049e9-cbfb-4572-8f7e-7ca5ad96ec6f
                         AttackDistance: 1.25
                         AttackCooldown: 0.65
                     809bf66aef692646891c293be4ca17b2: !ThereBeBombs.Player.PlayerInput,ThereBeBombs.Game
@@ -3272,7 +3245,7 @@ Hierarchy:
                         NavigationMesh: 82e111ca-2d94-4c74-a378-04e70ec91499:NavigationMesh
                         GroupId: 9398904c-72b7-ca9b-e966-23346704ae98
             Base:
-                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter New
+                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter
                 BasePartId: 3d655181-8f57-45e0-999b-f8070cb65ee2
                 InstanceId: 06b27a01-d659-4f8b-88f4-aef2437dc2fb
         -   Folder: Platform/Walls
@@ -5374,7 +5347,7 @@ Hierarchy:
                         Children:
                             a116d811cab5bf4da5211050e1d34e10: ref!! 11d816a1-b5ca-4dbf-a521-1050e1d34e10
             Base:
-                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter New
+                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter
                 BasePartId: eb20c3bd-fd44-47d2-bcfa-ede1486fbf34
                 InstanceId: 06b27a01-d659-4f8b-88f4-aef2437dc2fb
         -   Entity:
@@ -5393,7 +5366,7 @@ Hierarchy:
                         Projection: Perspective
                         Slot: c15adccd-88f4-4cd9-a45a-55ce9f8e89e5
             Base:
-                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter New
+                BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter
                 BasePartId: 8b651db9-eb87-40f3-8c4b-4055103dc726
                 InstanceId: 06b27a01-d659-4f8b-88f4-aef2437dc2fb
         -   Folder: Platform/Walls
@@ -6184,50 +6157,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             a2d6ca1adcf6ec41a4c7d29eb46ea480: ref!! 2ef505fe-926b-4d77-b6bf-fd19cd96f7f5
-        -   Entity:
-                Id: c53c3b45-d803-41ae-98bf-037253cb721a
-                Name: LootBox
-                Components:
-                    4bfa77cbdae1aa40aeba86b0b487ad99: !TransformComponent
-                        Id: 17e3efc6-49a2-4b1b-972f-01902bb67a4b
-                        Position*: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            81e049a26ff49a468daa04fa529c1955: ref!! 8bea9148-a050-42a3-a144-762f769efb3f
-                    92a01d27b6aa2e49b6f4555de61f78e4: !ModelComponent
-                        Id: 3e208734-de5b-478d-85c2-698279dd2e27
-                        Model: 87574721-fa01-400d-8c12-dc7c71d1ec37:Models/BoxF
-                        Materials: {}
-                    9ff39e9a53a90d49bb7faec06f6d32ca: !StaticColliderComponent
-                        Id: 996d5083-ee4b-4dfc-a0b8-d74a92857e2a
-                        CollisionGroup: CustomFilter2
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: true
-                        ColliderShapes:
-                            42588de189ce0146b55493835f755fe8: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    4e93d2aaca7cd64e9e2cdb87b6dea8c1: !ThereBeBombs.Gameplay.CrateScript,ThereBeBombs.Game
-                        Id: 85b000ea-cc7b-4c18-869d-6bbce71d9fab
-                        CoinGetEffect: 34eb80e4-bd45-4a34-bbd2-4d226873c199:VFXPrefabs/vfx-Dustcloud
-                        CoinSpawnModel: 034fb984-b1b5-4e39-bb99-a644cc487f14:LootGoldCoin
-                        SoundEffect: 2593380e-fd44-4cc0-af7a-e69458974720:Audio/crate_breaking
-                        Trigger: ref!! f2c068a7-dda3-44f7-a049-55de551b5e05
-                    28cbe91f2b1efd4a865067a932c54649: !ThereBeBombs.Gameplay.Trigger,ThereBeBombs.Game
-                        Id: f2c068a7-dda3-44f7-a049-55de551b5e05
-                        TriggerCondition: StartOnly
-            Base:
-                BasePartAsset: c3cdbc1b-a508-4a6d-b125-f6b9e6a96948:LootBox
-                BasePartId: 7482eb0c-78ea-4a3c-8d85-8133ed9d63b2
-                InstanceId: 5a6a88e9-6daf-4c53-b2d6-676b7812191c
         -   Entity:
                 Id: c5cfc891-f889-4ee6-99dd-aea5360ec443
                 Name: Box3x1x1
@@ -7182,7 +7111,7 @@ Hierarchy:
                 InstanceId: f2454823-b556-49d7-b9da-26de32c20930
         -   Entity:
                 Id: e8484df0-5797-472f-a8fa-8bce48e15ec4
-                Name: Bite Collision
+                Name: Bite Attack
                 Components:
                     1e4681750ed2b5f961375b2fb9f7514d: !TransformComponent
                         Id: 1131df3c-3d0a-46e0-a4fc-0d1c83d6bd5d
@@ -7190,30 +7119,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    7ea4ebec8b9993c11f8675aebbbc3f49: !RigidbodyComponent
-                        Id: cd1abf07-412f-4430-a6da-5b57190583ab
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.0
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: true
-                        IsKinematic: true
-                        Mass: 0.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: false
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
-                        ColliderShapes:
-                            f68da44226add678550666100c201680: !SphereColliderShapeDesc
-                                Is2D: false
-                                Radius: 5.0
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-                    01a55e5d5147368f2800ea3ad1724e58: !ThereBeBombs.Gameplay.Enemies.EnemyCollider,ThereBeBombs.Game
-                        Id: f51c9f07-8131-466b-b2be-729d2cf38555
-                        Trigger: ref!! cd1abf07-412f-4430-a6da-5b57190583ab
+                    e9a215f789a446ee751c0d8a42bf6036: !ThereBeBombs.Gameplay.Enemies.BiteAttack,ThereBeBombs.Game
+                        Id: 5450f9da-e58a-40fa-8e68-6557cdc0bc7c
             Base:
                 BasePartAsset: d4c604cc-ac92-4d33-b2d3-07bde36811c9:Cockroach
                 BasePartId: 963dbadc-d525-4107-aab3-ed07c60b13f7

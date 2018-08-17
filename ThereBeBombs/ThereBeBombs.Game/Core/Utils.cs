@@ -165,6 +165,7 @@ namespace ThereBeBombs.Core
 
                 StaticColliderComponent staticBody = hitResult.Collider as StaticColliderComponent;
                 RigidbodyComponent rigidBody = hitResult.Collider as RigidbodyComponent;
+                CharacterComponent charactorBody = hitResult.Collider as CharacterComponent;
 
                 if (staticBody != null)
                 {
@@ -180,8 +181,13 @@ namespace ThereBeBombs.Core
                     if (rigidBody.CollisionGroup == CollisionFilterGroups.CustomFilter3)
                         type = ClickType.Door;
 
-                    if (rigidBody.CollisionGroup == CollisionFilterGroups.CustomFilter4)
+                }
+
+                if (charactorBody != null)
+                {
+                    if (charactorBody.CollisionGroup == CollisionFilterGroups.CustomFilter4)
                         type = ClickType.Enemy;
+
                 }
 
                 if (type != ClickType.Empty)

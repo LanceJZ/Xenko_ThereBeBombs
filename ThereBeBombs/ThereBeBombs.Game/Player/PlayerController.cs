@@ -10,6 +10,7 @@ using Xenko.Engine.Events;
 using Xenko.Navigation;
 using Xenko.Physics;
 using ThereBeBombs.Core;
+using ThereBeBombs.Gameplay.Enemies;
 
 namespace ThereBeBombs.Player
 {
@@ -46,8 +47,8 @@ namespace ThereBeBombs.Player
         Vector3 MoveDirection = Vector3.Zero;
         bool isRunning = false;
         // Attacking
-        [Display("Punch Collision")]
-        public RigidbodyComponent PunchCollision { get; set; }
+        //[Display("Punch Collision")]
+        //public RigidbodyComponent PunchCollision { get; set; }
         /// <summary>
         /// The maximum distance from which the character can perform an attack
         /// </summary>
@@ -82,18 +83,17 @@ namespace ThereBeBombs.Player
             base.Start();
             // Get the navigation component on the same entity as this script
             navigation = Entity.Get<NavigationComponent>();
-
             // Will search for an CharacterComponent within the same entity as this script
             character = Entity.Get<CharacterComponent>();
 
             if (character == null) throw new ArgumentException("Please add a CharacterComponent to the entity containing PlayerController!");
 
-            if (PunchCollision == null) throw
-                    new ArgumentException("Please add a RigidbodyComponent as a PunchCollision to the entity containing PlayerController!");
+            //if (PunchCollision == null) throw
+            //        new ArgumentException("Please add a RigidbodyComponent as a PunchCollision to the entity containing PlayerController!");
 
             ModelChildEntity = Entity.GetChild(0);
             MoveToDestination = Entity.Transform.WorldMatrix.TranslationVector;
-            PunchCollision.Enabled = false;
+            //PunchCollision.Enabled = false;
 
             Entity atimerE = new Entity { new Core.Timer() };
             SceneSystem.SceneInstance.RootScene.Entities.Add(atimerE);
@@ -135,9 +135,12 @@ namespace ThereBeBombs.Player
                 // Attack!
                 HaltMovement();
 
+                if (AttackEntity.Get<CockroachScript>() != null)
+                    AttackEntity.Get<CockroachScript>().Hit();
+
                 AttackEntity = null;
                 AttackTimer.Reset(AttackCooldown);
-                PunchCollision.Enabled = true;
+                //PunchCollision.Enabled = true;
                 //IsAttackingEventKey.Broadcast(true);
             }
             else
@@ -268,7 +271,11 @@ namespace ThereBeBombs.Player
 
         void RotateTowardsTarget(Vector3 pointDestination)
         {
-            YawOrientation = MathUtil.RadiansToDegrees((float) Math.Atan2(-pointDestination.Z, pointDestination.X) + MathUtil.PiOverTwo);
+            Vector3 direction = pointDestination - Entity.Transform.Position;
+
+            YawOrientation = MathUtil.RadiansToDegrees((float) Math.Atan2(-direction.Z, direction.X) + MathUtil.PiOverTwo);
+
+            Rotate();
         }
 
         void Rotate()

@@ -37,10 +37,10 @@ namespace ThereBeBombs.Gameplay.Enemies
         Vector3 moveDirection = Vector3.Zero;
         bool IsRunning = false;
         // Attacking
-        [Display("Bite Collision")]
-        public RigidbodyComponent BiteCollision { get; set; }
+        //[Display("Bite Collision")]
+        //public RigidbodyComponent BiteCollision { get; set; }
         [Display("Attack Distance")]
-        public float AttackDistance { get; set; } = 1f;
+        public float AttackDistance { get; set; } = 0.25f;
         /// <summary>
         /// Cooldown in seconds required for the character to recover from starting an attack until it can choose another action
         /// </summary>
@@ -57,9 +57,6 @@ namespace ThereBeBombs.Gameplay.Enemies
         bool ReachedDestination => WaypointIndex >= pathToDestination.Count;
         Vector3 CurrentWaypoint => WaypointIndex < pathToDestination.Count ? pathToDestination[WaypointIndex] : Vector3.Zero;
         bool HasNewDestination;
-        //The get hit by player trigger.
-        public Trigger Trigger { get; set; }
-        EventReceiver<bool> triggeredEvent;
 
         public override void Start()
         {
@@ -68,14 +65,12 @@ namespace ThereBeBombs.Gameplay.Enemies
             // Get the navigation component on the same entity as this script
             navigation = Entity.Get<NavigationComponent>();
 
-            if (BiteCollision == null) throw
-                    new ArgumentException("Please add a RigidbodyComponent as a BiteCollision to the enemy entity!");
+            //if (BiteCollision == null) throw
+            //        new ArgumentException("Please add a RigidbodyComponent as a BiteCollision to the enemy entity!");
 
             ModelEntity = Entity;
             MoveDestination = Entity.Transform.WorldMatrix.TranslationVector;
-            BiteCollision.Enabled = false;
-
-            triggeredEvent = (Trigger != null) ? new EventReceiver<bool>(Trigger.TriggerEvent) : null;
+            //BiteCollision.Enabled = false;
 
             //Debug
             //this.GetSimulation().ColliderShapesRendering = true;
@@ -92,13 +87,6 @@ namespace ThereBeBombs.Gameplay.Enemies
                 Move(MaxRunSpeed);
             }
 
-            // Check if the hit by player.
-            bool triggered;
-
-            if (triggeredEvent?.TryReceive(out triggered) ?? false)
-            {
-                CollisionStarted();
-            }
         }
 
         public void SpotsPlayer(Vector3 playerPosition)
@@ -119,12 +107,9 @@ namespace ThereBeBombs.Gameplay.Enemies
 
         void Attack()
         {
-            if (BiteCollision == null)
-                return;
-
             float elapsedTotalSeconds = (float)Game.UpdateTime.Elapsed.TotalSeconds;
             AttackCooldown = (AttackCooldown > 0) ? AttackCooldown - elapsedTotalSeconds : 0f;
-            BiteCollision.Enabled = (AttackCooldown > 0);
+            //BiteCollision.Enabled = (AttackCooldown > 0);
 
             if (AttackEntity == null)
                 return;
@@ -141,7 +126,7 @@ namespace ThereBeBombs.Gameplay.Enemies
 
                 AttackEntity = null;
                 AttackCooldown = AttackCooldown;
-                BiteCollision.Enabled = true;
+                //BiteCollision.Enabled = true;
             }
             else
             {
