@@ -33,9 +33,12 @@ namespace ThereBeBombs.Gameplay.Enemies
         /// Multiplied by the distance to the target and clamped to 1 and used to slow down when nearing the destination
         /// </summary>
         public float DestinationSlowdown { get; set; } = 0.4f;
+        //Reference to player script.
+        Player.PlayerController PlayerRef;
         // Allow some inertia to the movement
         Vector3 moveDirection = Vector3.Zero;
         bool IsRunning = false;
+        bool IsSearching = true;
         // Attacking
         //[Display("Bite Collision")]
         //public RigidbodyComponent BiteCollision { get; set; }
@@ -49,6 +52,8 @@ namespace ThereBeBombs.Gameplay.Enemies
         Entity ModelEntity;
         float yawOrientation;
         Entity AttackEntity = null;
+        Core.Timer AttackTimer;
+
         // Pathfinding Component
         NavigationComponent navigation;
         readonly List<Vector3> pathToDestination = new List<Vector3>();
@@ -62,6 +67,12 @@ namespace ThereBeBombs.Gameplay.Enemies
         {
             base.Start();
 
+            Entity charEntity = Entity.Scene.Entities.FirstOrDefault(x => string.Equals(x.Name, "PlayerCharacter"));
+            PlayerRef = charEntity.Get<Player.PlayerController>();
+
+            Entity atimerE = new Entity { new Core.Timer() };
+            SceneSystem.SceneInstance.RootScene.Entities.Add(atimerE);
+            AttackTimer = atimerE.Get<Core.Timer>();
             // Get the navigation component on the same entity as this script
             navigation = Entity.Get<NavigationComponent>();
 
@@ -78,13 +89,17 @@ namespace ThereBeBombs.Gameplay.Enemies
 
         public override void Update()
         {
-            if (!IsRunning)
+            if (!IsRunning && !IsSearching)
             {
                 Attack();
             }
-            else
+            else if (IsRunning && !IsSearching)
             {
                 Move(MaxRunSpeed);
+            }
+            else
+            {
+                Search();
             }
 
         }
@@ -93,6 +108,7 @@ namespace ThereBeBombs.Gameplay.Enemies
         {
             //Action for spotting player.
             System.Diagnostics.Debug.WriteLine("Cockroach has found player." + playerPosition);
+            IsSearching = false;
         }
 
         protected void CollisionStarted()
@@ -105,11 +121,31 @@ namespace ThereBeBombs.Gameplay.Enemies
 
         }
 
+        void Search()
+        {
+            HitResult result = this.GetSimulation().Raycast(PlayerRef.Entity.Transform.WorldMatrix.TranslationVector,
+                Entity.Transform.WorldMatrix.TranslationVector);
+
+            if (result.Collider.Entity.Get<Player.PlayerController>() != null)
+            {
+                return;
+            }
+
+            Vector3 differnceInLocation = PlayerRef.Entity.Transform.WorldMatrix.TranslationVector
+                - Entity.Transform.WorldMatrix.TranslationVector;
+
+            float length = differnceInLocation.Length();
+
+            if (length > 15)
+                return;
+
+            SpotsPlayer(PlayerRef.Entity.Transform.WorldMatrix.TranslationVector);
+        }
+
         void Attack()
         {
-            float elapsedTotalSeconds = (float)Game.UpdateTime.Elapsed.TotalSeconds;
-            AttackCooldown = (AttackCooldown > 0) ? AttackCooldown - elapsedTotalSeconds : 0f;
-            //BiteCollision.Enabled = (AttackCooldown > 0);
+            if (!AttackTimer.Expired)
+                return;
 
             if (AttackEntity == null)
                 return;
@@ -125,7 +161,7 @@ namespace ThereBeBombs.Gameplay.Enemies
                 HaltMovement();
 
                 AttackEntity = null;
-                AttackCooldown = AttackCooldown;
+                AttackTimer.Reset(AttackCooldown);
                 //BiteCollision.Enabled = true;
             }
             else
@@ -257,22 +293,12 @@ namespace ThereBeBombs.Gameplay.Enemies
 
         void Move(float speed)
         {
-            if (AttackCooldown > 0)
+            if (!AttackTimer.Expired)
                 return;
 
             if (HasNewDestination)
             {
-                //if (clickResult.Type == ClickType.Ground)
-                //{
-                //    attackEntity = null;
-                //    UpdateDestination(clickResult.WorldPosition);
-                //}
 
-                //if (clickResult.Type == ClickType.LootCrate)
-                //{
-                //    attackEntity = clickResult.ClickedEntity;
-                //    Attack();
-                //}
             }
 
             if (!IsRunning)

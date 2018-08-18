@@ -45,7 +45,6 @@ Hierarchy:
                         DestinationThreshold: 0.2
                         CornerSlowdown: 0.6
                         DestinationSlowdown: 0.4
-                        PunchCollision: ref!! 3e4529fc-8a7a-4b62-b0b7-549c4f0eff11
                         AttackDistance: 1.25
                         AttackCooldown: 0.65
                     809bf66aef692646891c293be4ca17b2: !ThereBeBombs.Player.PlayerInput,ThereBeBombs.Game
