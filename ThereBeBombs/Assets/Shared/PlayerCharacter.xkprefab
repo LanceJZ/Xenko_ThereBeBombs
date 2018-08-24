@@ -39,26 +39,18 @@ Hierarchy:
                                 Radius: 0.4
                                 LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    f722a19496166946a5d26eaf23d2ae03: !ThereBeBombs.Player.PlayerController,ThereBeBombs.Game
-                        Id: 32811e95-fca9-4e65-9ef4-62e31f4508c1
-                        MaxRunSpeed: 8.5
-                        DestinationThreshold: 0.2
-                        CornerSlowdown: 0.6
-                        DestinationSlowdown: 0.4
-                        AttackDistance: 1.25
-                        AttackCooldown: 0.65
-                    809bf66aef692646891c293be4ca17b2: !ThereBeBombs.Player.PlayerInput,ThereBeBombs.Game
-                        Id: 2753afe7-1406-4e97-b5f8-d29fce0960fd
-                        ControllerIndex: 0
-                        DeadZone: 0.25
-                        Highlight: ref!! 435b4877-9f7a-4a15-b723-903ee88acba7
-                        HighlightMaterial: b722814f-fc82-4a32-b369-39ca68aec390:HighlightMaterial
-                        Camera: ref!! 12d80531-ed70-4384-8b18-844f59c1fd08
-                        ClickEffect: 0969a122-0383-43f6-b5e4-3d78814d4318:VFXPrefabs/vfx-ClickEffect
                     46ae7b6257b0c84e8a26b517d4b95492: !NavigationComponent
                         Id: 2da62f64-1143-498a-83b3-8c8db98f26aa
                         NavigationMesh: 82e111ca-2d94-4c74-a378-04e70ec91499:NavigationMesh
                         GroupId: 9398904c-72b7-ca9b-e966-23346704ae98
+                    add94b278749ccca390951445706efe5: !ThereBeBombs.Player.PlayerController,ThereBeBombs.Game
+                        Id: 3aeb0955-93cf-4056-841f-dd509c484086
+                        MaxRunSpeed: 10.0
+                        DestinationThreshold: 0.2
+                        CornerSlowdown: 0.6
+                        DestinationSlowdown: 0.4
+                        AttackDistance: 1.0
+                        AttackCooldown: 0.65
         -   Entity:
                 Id: 435b4877-9f7a-4a15-b723-903ee88acba7
                 Name: AttackCollision

@@ -848,9 +848,6 @@ Hierarchy:
                         Model: bde9799a-6a85-456f-9c0e-e8bdba084d2c:Models/Box5x2x1
                         Materials:
                             7c654d4d4705199d40b023709cde070b~0: 12e57e2e-6d97-4c41-a790-8619c113e51f:Materials/GridMTStairs
-                    b4b66ef1fe887c8473a188cf7b6d037b: !Gameplay.Door.DoorScript,ThereBeBombs.Game
-                        Id: bcb09e20-b204-4649-9e4d-d801399ea49c
-                        Trigger: null
                     551883224849b9daaf69017293bece5e: !RigidbodyComponent
                         Id: e13487e1-6b9d-4ad8-83ae-9b2d7314a2fc
                         CollisionGroup: CustomFilter3
@@ -874,13 +871,12 @@ Hierarchy:
                                 Size: {X: 5.0, Y: 2.0, Z: 1.0}
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    341c2ae818b0f4517db4f47274e82f78*: !ThereBeBombs.Gameplay.Trigger,ThereBeBombs.Game
-                        Id: e5967933-9b9c-4bda-bdda-7a9bdd3c4ef3
+                    b0e994448fc75260483a8c2cea152dd0: !Gameplay.Door.DoorScript,ThereBeBombs.Game
+                        Id: 6bf7dce2-04fd-4e9f-95f6-0ef4bf5da23b
+                        Trigger: ref!! 34adf3d0-ce76-4d93-badc-f0df8c2ba046
+                    1509075bfed7f26d2b6477f797743194: !ThereBeBombs.Gameplay.Trigger,ThereBeBombs.Game
+                        Id: 34adf3d0-ce76-4d93-badc-f0df8c2ba046
                         TriggerCondition: StartOnly
-                    2071c0b78aa4553d8a498296e3de0007*: !Gameplay.Door.DoorScript,ThereBeBombs.Game
-                        Id: c1904aff-6229-470e-bb32-98820b4da262
-                        Trigger: ref!! e5967933-9b9c-4bda-bdda-7a9bdd3c4ef3
-                    2c8a8cb185e576b7a82a5713062c2f48: ~(Deleted)
             Base:
                 BasePartAsset: 85eea446-ff46-449b-be94-15fe2d0c1134:BlocksPrefabs/Box5x2x1
                 BasePartId: 879dceae-51d6-429f-9285-8359042d00c6
@@ -2582,24 +2578,14 @@ Hierarchy:
                 Components:
                     76f8ab15859155b10c37a678ca6d68be: !TransformComponent
                         Id: 2c45e18c-ba77-4ba9-964a-bc6cda074ce8
-                        Position*: {X: -5.46542358, Y: 0.0, Z: 19.200119}
+                        Position*: {X: -8.781135, Y: 0.0, Z: 16.69049}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 0.05, Y: 0.05, Z: 0.05}
-                        Children:
-                            9887845171924393ac3bba44362647f0: ref!! 1131df3c-3d0a-46e0-a4fc-0d1c83d6bd5d
-                            bc9fa8724558e4387c43a061f814e469: ref!! a6849cb3-e875-4793-9361-5d21bed1d60d
+                        Children: {}
                     27ce8ae2ca8a5d21c9af5b6f3b006bd6: !ModelComponent
                         Id: 4d7184ff-1814-46e0-98e2-4075b5495c22
                         Model: 6ec09f41-1aa5-41f6-8dbb-2e4445e6f795:Models/Cockroach
                         Materials: {}
-                    7ab31d609545fa9a94772f74aa10f5f6: !ThereBeBombs.Gameplay.Enemies.CockroachScript,ThereBeBombs.Game
-                        Id: 8a8aa23f-8d57-441d-b876-2b439fe40e80
-                        MaxRunSpeed: 10.0
-                        DestinationThreshold: 0.2
-                        CornerSlowdown: 0.6
-                        DestinationSlowdown: 0.4
-                        AttackDistance: 1.0
-                        AttackCooldown: 0.65
                     7af154bd6429ca263733b714aca03266: !CharacterComponent
                         Id: 1c947a6f-03ec-4899-829c-1ef785aa2420
                         CollisionGroup: CustomFilter4
@@ -2643,6 +2629,14 @@ Hierarchy:
                                 Size: {X: 8.0, Y: 4.0, Z: 24.0}
                                 LocalOffset: {X: 0.0, Y: 2.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    653ae425103474dbffc61407c0a6ef33: !ThereBeBombs.Gameplay.Enemies.CockroachScript,ThereBeBombs.Game
+                        Id: db7bdfaa-ded6-4b0c-b7fe-267fdd73c4cb
+                        MaxRunSpeed: 6.0
+                        DestinationThreshold: 0.2
+                        CornerSlowdown: 0.6
+                        DestinationSlowdown: 0.4
+                        AttackDistance: 0.15
+                        AttackCooldown: 1.1
             Base:
                 BasePartAsset: d4c604cc-ac92-4d33-b2d3-07bde36811c9:Cockroach
                 BasePartId: 04b61108-a036-454a-9f05-cc3919a69192
@@ -3224,26 +3218,18 @@ Hierarchy:
                                 Radius: 0.4
                                 LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                    f722a19496166946a5d26eaf23d2ae03: !ThereBeBombs.Player.PlayerController,ThereBeBombs.Game
-                        Id: ba45967c-99ce-4c16-8d00-76492a549876
-                        MaxRunSpeed: 8.5
-                        DestinationThreshold: 0.2
-                        CornerSlowdown: 0.6
-                        DestinationSlowdown: 0.4
-                        AttackDistance: 1.25
-                        AttackCooldown: 0.65
-                    809bf66aef692646891c293be4ca17b2: !ThereBeBombs.Player.PlayerInput,ThereBeBombs.Game
-                        Id: ae00aaa9-a49a-4e44-b6d6-dab4527a148d
-                        ControllerIndex: 0
-                        DeadZone: 0.25
-                        Highlight: ref!! 2399c011-3b6b-477f-b47f-c67d5abac3a8
-                        HighlightMaterial: b722814f-fc82-4a32-b369-39ca68aec390:HighlightMaterial
-                        Camera: ref!! fd9cb770-3f12-4ca2-bb11-addaf50b6028
-                        ClickEffect: 0969a122-0383-43f6-b5e4-3d78814d4318:VFXPrefabs/vfx-ClickEffect
                     46ae7b6257b0c84e8a26b517d4b95492: !NavigationComponent
                         Id: 569a22c3-a485-49d0-84db-e2c6a25890f5
                         NavigationMesh: 82e111ca-2d94-4c74-a378-04e70ec91499:NavigationMesh
                         GroupId: 9398904c-72b7-ca9b-e966-23346704ae98
+                    add94b278749ccca390951445706efe5: !ThereBeBombs.Player.PlayerController,ThereBeBombs.Game
+                        Id: dd2b4c9c-bc3d-476d-9494-2c309749dafd
+                        MaxRunSpeed: 10.0
+                        DestinationThreshold: 0.2
+                        CornerSlowdown: 0.6
+                        DestinationSlowdown: 0.4
+                        AttackDistance: 1.0
+                        AttackCooldown: 0.65
             Base:
                 BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter
                 BasePartId: 3d655181-8f57-45e0-999b-f8070cb65ee2
@@ -7110,22 +7096,6 @@ Hierarchy:
                 BasePartId: acfef419-6790-4bc4-907c-6700530bf99e
                 InstanceId: f2454823-b556-49d7-b9da-26de32c20930
         -   Entity:
-                Id: e8484df0-5797-472f-a8fa-8bce48e15ec4
-                Name: Bite Attack
-                Components:
-                    1e4681750ed2b5f961375b2fb9f7514d: !TransformComponent
-                        Id: 1131df3c-3d0a-46e0-a4fc-0d1c83d6bd5d
-                        Position: {X: 0.0, Y: 3.0, Z: 12.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    e9a215f789a446ee751c0d8a42bf6036: !ThereBeBombs.Gameplay.Enemies.BiteAttack,ThereBeBombs.Game
-                        Id: 5450f9da-e58a-40fa-8e68-6557cdc0bc7c
-            Base:
-                BasePartAsset: d4c604cc-ac92-4d33-b2d3-07bde36811c9:Cockroach
-                BasePartId: 963dbadc-d525-4107-aab3-ed07c60b13f7
-                InstanceId: d723b744-a68a-440b-9359-4c8fd5a39beb
-        -   Entity:
                 Id: e93f16d8-942e-4f8c-b269-2241daad2045
                 Name: Box3x1x1
                 Components:
@@ -7740,45 +7710,6 @@ Hierarchy:
                 BasePartAsset: e60df339-ca98-4773-ba09-ab83bf90416d:BlocksPrefabs/Box2x1x1
                 BasePartId: cfc05c6f-da7c-4ba4-8e09-1a659e64ff2a
                 InstanceId: e62ef8af-1157-40e2-ad00-a25a00435659
-        -   Entity:
-                Id: feb661a8-b4c0-45fe-98f1-aa176c41736d
-                Name: Player Detect
-                Components:
-                    b3934cf8146238e0c45152e14f4a81ae: !TransformComponent
-                        Id: a6849cb3-e875-4793-9361-5d21bed1d60d
-                        Position: {X: 0.0, Y: 0.0, Z: 45.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    0de5db680daad81ea25a0bb1e11a13a0: !ThereBeBombs.Gameplay.Enemies.PlayerDetect,ThereBeBombs.Game
-                        Id: 4832b569-1c88-4f18-95c4-92cf184c0083
-                        Trigger: !RigidbodyComponent ref!! 14ddbc01-723a-4a5e-8ecb-b8064422a943
-                    fab8d5b990f68d5fbc642f9619bc6fe9: !RigidbodyComponent
-                        Id: 14ddbc01-723a-4a5e-8ecb-b8064422a943
-                        Enabled: false
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.0
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: true
-                        IsKinematic: true
-                        Mass: 0.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: false
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
-                        ColliderShapes:
-                            7a5bfd16854f37942688e99c53a5f8ef: !SphereColliderShapeDesc
-                                Is2D: false
-                                Radius: 100.0
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-            Base:
-                BasePartAsset: d4c604cc-ac92-4d33-b2d3-07bde36811c9:Cockroach
-                BasePartId: 7d9dbb2c-b9cd-4469-bf1a-2685276c4d92
-                InstanceId: d723b744-a68a-440b-9359-4c8fd5a39beb
         -   Folder: Platform/Walls
             Entity:
                 Id: fece533c-a9c4-4b54-8ac0-4e589bbfa6cd

@@ -21,12 +21,6 @@ Hierarchy:
                         Model: bde9799a-6a85-456f-9c0e-e8bdba084d2c:Models/Box5x2x1
                         Materials:
                             7c654d4d4705199d40b023709cde070b~0: 12e57e2e-6d97-4c41-a790-8619c113e51f:Materials/GridMTStairs
-                    2c8a8cb185e576b7a82a5713062c2f48: !ThereBeBombs.Gameplay.Trigger,ThereBeBombs.Game
-                        Id: 4ccf8365-b227-478d-9e18-191817a41833
-                        TriggerCondition: StartOnly
-                    b4b66ef1fe887c8473a188cf7b6d037b: !Gameplay.Door.DoorScript,ThereBeBombs.Game
-                        Id: 36b56853-406d-4947-a18e-27d5e370e88e
-                        Trigger: ref!! 4ccf8365-b227-478d-9e18-191817a41833
                     551883224849b9daaf69017293bece5e: !RigidbodyComponent
                         Id: 29c5323c-f5e8-4a33-9ea3-88f2631a4dcf
                         CollisionGroup: CustomFilter3
@@ -50,3 +44,9 @@ Hierarchy:
                                 Size: {X: 5.0, Y: 2.0, Z: 1.0}
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    b0e994448fc75260483a8c2cea152dd0: !Gameplay.Door.DoorScript,ThereBeBombs.Game
+                        Id: 51cc3db6-1db9-44df-80be-8666b27da548
+                        Trigger: ref!! 8033c244-c618-4328-b2a2-59bccf5713fc
+                    1509075bfed7f26d2b6477f797743194: !ThereBeBombs.Gameplay.Trigger,ThereBeBombs.Game
+                        Id: 8033c244-c618-4328-b2a2-59bccf5713fc
+                        TriggerCondition: StartOnly

@@ -19,7 +19,7 @@ namespace ThereBeBombs.Gameplay.Enemies
         /// The maximum speed the enemy can run at
         /// </summary>
         [Display("Run Speed")]
-        public float MaxRunSpeed { get; set; } = 10;
+        public float MaxRunSpeed { get; set; } = 6;
         /// <summary>
         /// The distance from the destination at which the enemy will stop moving
         /// </summary>
@@ -33,26 +33,24 @@ namespace ThereBeBombs.Gameplay.Enemies
         /// Multiplied by the distance to the target and clamped to 1 and used to slow down when nearing the destination
         /// </summary>
         public float DestinationSlowdown { get; set; } = 0.4f;
+        //public RigidbodyComponent BiteCollision { get; set; }
+        [Display("Attack Distance")]
+        public float AttackDistance { get; set; } = 0.15f;
+        /// <summary>
+        /// Cooldown in seconds required for the character to recover from starting an attack until it can choose another action
+        /// </summary>
+        [Display("Attack Cooldown")]
+        public float AttackCooldown { get; set; } = 1.1f;
         //Reference to player script.
         Player.PlayerController PlayerRef;
         // Allow some inertia to the movement
         Vector3 moveDirection = Vector3.Zero;
         bool IsRunning = false;
         bool IsSearching = true;
-        // Attacking
-        //[Display("Bite Collision")]
-        //public RigidbodyComponent BiteCollision { get; set; }
-        [Display("Attack Distance")]
-        public float AttackDistance { get; set; } = 0.25f;
-        /// <summary>
-        /// Cooldown in seconds required for the character to recover from starting an attack until it can choose another action
-        /// </summary>
-        [Display("Attack Cooldown")]
-        public float AttackCooldown { get; set; } = 0.65f;
-        Entity ModelEntity;
         float yawOrientation;
         Entity AttackEntity = null;
         Core.Timer AttackTimer;
+        float YawOrientation;
 
         // Pathfinding Component
         NavigationComponent navigation;
@@ -75,16 +73,7 @@ namespace ThereBeBombs.Gameplay.Enemies
             AttackTimer = atimerE.Get<Core.Timer>();
             // Get the navigation component on the same entity as this script
             navigation = Entity.Get<NavigationComponent>();
-
-            //if (BiteCollision == null) throw
-            //        new ArgumentException("Please add a RigidbodyComponent as a BiteCollision to the enemy entity!");
-
-            ModelEntity = Entity;
             MoveDestination = Entity.Transform.WorldMatrix.TranslationVector;
-            //BiteCollision.Enabled = false;
-
-            //Debug
-            //this.GetSimulation().ColliderShapesRendering = true;
         }
 
         public override void Update()
@@ -109,6 +98,8 @@ namespace ThereBeBombs.Gameplay.Enemies
             //Action for spotting player.
             System.Diagnostics.Debug.WriteLine("Cockroach has found player." + playerPosition);
             IsSearching = false;
+            IsRunning = true;
+            UpdateDestination(playerPosition);
         }
 
         protected void CollisionStarted()
@@ -123,23 +114,20 @@ namespace ThereBeBombs.Gameplay.Enemies
 
         void Search()
         {
-            HitResult result = this.GetSimulation().Raycast(PlayerRef.Entity.Transform.WorldMatrix.TranslationVector,
-                Entity.Transform.WorldMatrix.TranslationVector);
+            Vector3 start = Entity.Transform.WorldMatrix.TranslationVector;
+            Vector3 target = PlayerRef.Entity.Transform.WorldMatrix.TranslationVector;
 
-            if (result.Collider.Entity.Get<Player.PlayerController>() != null)
-            {
-                return;
-            }
-
-            Vector3 differnceInLocation = PlayerRef.Entity.Transform.WorldMatrix.TranslationVector
-                - Entity.Transform.WorldMatrix.TranslationVector;
+            Vector3 differnceInLocation = target - start;
 
             float length = differnceInLocation.Length();
 
             if (length > 15)
                 return;
 
-            SpotsPlayer(PlayerRef.Entity.Transform.WorldMatrix.TranslationVector);
+            HitResult result = this.GetSimulation().Raycast(start, target);
+
+            if (result.Collider.Entity.Name == "PlayerCharacter")
+                SpotsPlayer(target);
         }
 
         void Attack()
@@ -151,7 +139,7 @@ namespace ThereBeBombs.Gameplay.Enemies
                 return;
 
             Vector3 directionToCharacter = AttackEntity.Transform.WorldMatrix.TranslationVector -
-                                       ModelEntity.Transform.WorldMatrix.TranslationVector;
+                                       Entity.Transform.WorldMatrix.TranslationVector;
             directionToCharacter.Y = 0;
             float currentDistance = directionToCharacter.Length();
 
@@ -176,7 +164,21 @@ namespace ThereBeBombs.Gameplay.Enemies
             IsRunning = false;
             moveDirection = Vector3.Zero;
             //character.SetVelocity(Vector3.Zero);
-            MoveDestination = ModelEntity.Transform.WorldMatrix.TranslationVector;
+            MoveDestination = Entity.Transform.WorldMatrix.TranslationVector;
+        }
+
+        void RotateTowardsTarget(Vector3 pointDestination)
+        {
+            Vector3 direction = pointDestination - Entity.Transform.Position;
+
+            YawOrientation = MathUtil.RadiansToDegrees((float)Math.Atan2(-direction.Z, direction.X) + MathUtil.PiOverTwo);
+
+            Rotate();
+        }
+
+        void Rotate()
+        {
+            Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(MathUtil.DegreesToRadians(YawOrientation), 0, 0);
         }
 
         void UpdateDestination(Vector3 destination)
@@ -271,7 +273,7 @@ namespace ThereBeBombs.Gameplay.Enemies
                 // Allow a very simple inertia to the character to make animation transitions more fluid
                 moveDirection = moveDirection * 0.85f + direction * moveSpeed * cornerSpeedMultiply * 0.15f;
                 //character.SetVelocity(moveDirection * speed);
-                Entity.GetParent().Transform.Position += (MoveDestination * speed);
+                Entity.Transform.Position += (MoveDestination * speed);
 
                 // Broadcast speed as per cent of the max speed
                 //RunSpeedEventKey.Broadcast(moveDirection.Length());
@@ -282,7 +284,7 @@ namespace ThereBeBombs.Gameplay.Enemies
                     yawOrientation = MathUtil.RadiansToDegrees((float)Math.Atan2(-moveDirection.Z, moveDirection.X) + MathUtil.PiOverTwo);
                 }
 
-                ModelEntity.Transform.Rotation = Quaternion.RotationYawPitchRoll(MathUtil.DegreesToRadians(yawOrientation), 0, 0);
+                Entity.Transform.Rotation = Quaternion.RotationYawPitchRoll(MathUtil.DegreesToRadians(yawOrientation), 0, 0);
             }
             else
             {
