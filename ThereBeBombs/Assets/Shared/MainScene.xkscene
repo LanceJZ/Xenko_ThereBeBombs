@@ -2637,6 +2637,10 @@ Hierarchy:
                         DestinationSlowdown: 0.4
                         AttackDistance: 0.15
                         AttackCooldown: 1.1
+                    95cf7c5b97da72f2de1f1aec7a64e1d6: !NavigationComponent
+                        Id: 22924a11-f28c-4a92-987d-8f6d065d6d66
+                        NavigationMesh: 82e111ca-2d94-4c74-a378-04e70ec91499:NavigationMesh
+                        GroupId: 9398904c-72b7-ca9b-e966-23346704ae98
             Base:
                 BasePartAsset: d4c604cc-ac92-4d33-b2d3-07bde36811c9:Cockroach
                 BasePartId: 04b61108-a036-454a-9f05-cc3919a69192
@@ -3230,6 +3234,14 @@ Hierarchy:
                         DestinationSlowdown: 0.4
                         AttackDistance: 1.0
                         AttackCooldown: 0.65
+                    b09244fe09b28ae1757936b50499f073: !ThereBeBombs.Player.PlayerInput,ThereBeBombs.Game
+                        Id: e1892435-b268-4adf-a66c-a4d1e7a686f7
+                        ControllerIndex: 0
+                        DeadZone: 0.25
+                        Highlight: ref!! 13dac082-3221-48b5-bd94-f052fd68fb0b
+                        HighlightMaterial: b722814f-fc82-4a32-b369-39ca68aec390:HighlightMaterial
+                        Camera: ref!! fd9cb770-3f12-4ca2-bb11-addaf50b6028
+                        ClickEffect: 0969a122-0383-43f6-b5e4-3d78814d4318:VFXPrefabs/vfx-ClickEffect
             Base:
                 BasePartAsset: de1ff220-8f48-424c-8d20-61c0a3c43ca3:PlayerCharacter
                 BasePartId: 3d655181-8f57-45e0-999b-f8070cb65ee2

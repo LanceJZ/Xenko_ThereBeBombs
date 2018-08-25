@@ -71,3 +71,7 @@ Hierarchy:
                         DestinationSlowdown: 0.4
                         AttackDistance: 0.15
                         AttackCooldown: 1.1
+                    95cf7c5b97da72f2de1f1aec7a64e1d6: !NavigationComponent
+                        Id: 25d4d956-fcda-435a-ae97-ecb8cab60645
+                        NavigationMesh: 82e111ca-2d94-4c74-a378-04e70ec91499:NavigationMesh
+                        GroupId: 9398904c-72b7-ca9b-e966-23346704ae98

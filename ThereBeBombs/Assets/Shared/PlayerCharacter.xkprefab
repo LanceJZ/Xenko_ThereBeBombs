@@ -51,6 +51,14 @@ Hierarchy:
                         DestinationSlowdown: 0.4
                         AttackDistance: 1.0
                         AttackCooldown: 0.65
+                    b09244fe09b28ae1757936b50499f073: !ThereBeBombs.Player.PlayerInput,ThereBeBombs.Game
+                        Id: f4de6d8b-5509-40c0-89fd-4bce99ea6882
+                        ControllerIndex: 0
+                        DeadZone: 0.25
+                        Highlight: ref!! ba871571-a102-441c-97cf-8de28bb4cd38
+                        HighlightMaterial: b722814f-fc82-4a32-b369-39ca68aec390:HighlightMaterial
+                        Camera: ref!! 12d80531-ed70-4384-8b18-844f59c1fd08
+                        ClickEffect: 0969a122-0383-43f6-b5e4-3d78814d4318:VFXPrefabs/vfx-ClickEffect
         -   Entity:
                 Id: 435b4877-9f7a-4a15-b723-903ee88acba7
                 Name: AttackCollision

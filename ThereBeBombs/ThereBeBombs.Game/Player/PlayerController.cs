@@ -62,13 +62,13 @@ namespace ThereBeBombs.Player
         // The PlayerController will propagate if it is attacking to the AnimationController
         //public static readonly EventKey<bool> IsAttackingEventKey = new EventKey<bool>();
         //Character Component
-        CharacterComponent character;
+        CharacterComponent Character;
         Entity ModelChildEntity;
         float YawOrientation;
         Core.Timer AttackTimer;
         Entity AttackEntity = null;
         // Pathfinding Component
-        NavigationComponent navigation;
+        NavigationComponent Navigation;
         readonly List<Vector3> PathToDestination = new List<Vector3>();
         int WaypointIndex;
         Vector3 MoveToDestination;
@@ -82,11 +82,11 @@ namespace ThereBeBombs.Player
         {
             base.Start();
             // Get the navigation component on the same entity as this script
-            navigation = Entity.Get<NavigationComponent>();
+            Navigation = Entity.Get<NavigationComponent>();
             // Will search for an CharacterComponent within the same entity as this script
-            character = Entity.Get<CharacterComponent>();
+            Character = Entity.Get<CharacterComponent>();
 
-            if (character == null) throw new ArgumentException("Please add a CharacterComponent to the entity containing PlayerController!");
+            if (Character == null) throw new ArgumentException("Please add a CharacterComponent to the entity containing PlayerController!");
 
             //if (PunchCollision == null) throw
             //        new ArgumentException("Please add a RigidbodyComponent as a PunchCollision to the entity containing PlayerController!");
@@ -154,7 +154,7 @@ namespace ThereBeBombs.Player
         {
             isRunning = false;
             MoveDirection = Vector3.Zero;
-            character.SetVelocity(Vector3.Zero);
+            Character.SetVelocity(Vector3.Zero);
             MoveToDestination = ModelChildEntity.Transform.WorldMatrix.TranslationVector;
         }
 
@@ -167,10 +167,11 @@ namespace ThereBeBombs.Player
                 // Generate a new path using the navigation component
                 PathToDestination.Clear();
 
-                if (navigation.TryFindPath(destination, PathToDestination))
+                if (Navigation.TryFindPath(destination, PathToDestination))
                 {
                     // Skip the points that are too close to the player
                     WaypointIndex = 0;
+
                     while (!ReachedDestination && (CurrentWaypoint - Entity.Transform.WorldMatrix.TranslationVector).Length() < 0.25f)
                     {
                         WaypointIndex++;
@@ -230,6 +231,7 @@ namespace ThereBeBombs.Player
                 if (advance)
                 {
                     WaypointIndex++;
+
                     if (ReachedDestination)
                     {
                         // Final waypoint reached
@@ -249,7 +251,7 @@ namespace ThereBeBombs.Player
 
                 // Allow a very simple inertia to the character to make animation transitions more fluid
                 MoveDirection = MoveDirection * 0.85f + direction * moveSpeed * cornerSpeedMultiply * 0.15f;
-                character.SetVelocity(MoveDirection * speed);
+                Character.SetVelocity(MoveDirection * speed);
 
                 // Broadcast speed as per cent of the max speed
                 //RunSpeedEventKey.Broadcast(moveDirection.Length());

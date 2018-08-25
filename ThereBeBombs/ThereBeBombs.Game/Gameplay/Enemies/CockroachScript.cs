@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Using
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using Xenko.Engine.Events;
 using Xenko.Navigation;
 using Xenko.Physics;
 using ThereBeBombs.Core;
+#endregion
 
 namespace ThereBeBombs.Gameplay.Enemies
 {
@@ -53,7 +55,8 @@ namespace ThereBeBombs.Gameplay.Enemies
         float YawOrientation;
 
         // Pathfinding Component
-        NavigationComponent navigation;
+        CharacterComponent Character;
+        NavigationComponent Navigation;
         readonly List<Vector3> pathToDestination = new List<Vector3>();
         int WaypointIndex;
         Vector3 MoveDestination;
@@ -65,6 +68,10 @@ namespace ThereBeBombs.Gameplay.Enemies
         {
             base.Start();
 
+            // Get the navigation component on the same entity as this script
+            Navigation = Entity.Get<NavigationComponent>();
+            // Will search for an CharacterComponent within the same entity as this script
+            Character = Entity.Get<CharacterComponent>();
             Entity charEntity = Entity.Scene.Entities.FirstOrDefault(x => string.Equals(x.Name, "PlayerCharacter"));
             PlayerRef = charEntity.Get<Player.PlayerController>();
 
@@ -72,7 +79,7 @@ namespace ThereBeBombs.Gameplay.Enemies
             SceneSystem.SceneInstance.RootScene.Entities.Add(atimerE);
             AttackTimer = atimerE.Get<Core.Timer>();
             // Get the navigation component on the same entity as this script
-            navigation = Entity.Get<NavigationComponent>();
+            Navigation = Entity.Get<NavigationComponent>();
             MoveDestination = Entity.Transform.WorldMatrix.TranslationVector;
         }
 
@@ -100,6 +107,7 @@ namespace ThereBeBombs.Gameplay.Enemies
             IsSearching = false;
             IsRunning = true;
             UpdateDestination(playerPosition);
+            AttackEntity = PlayerRef.Entity;
         }
 
         protected void CollisionStarted()
@@ -149,8 +157,11 @@ namespace ThereBeBombs.Gameplay.Enemies
                 HaltMovement();
 
                 AttackEntity = null;
+                IsSearching = true;
                 AttackTimer.Reset(AttackCooldown);
                 //BiteCollision.Enabled = true;
+                System.Diagnostics.Debug.WriteLine("Cockroach Attacks.");
+                PlayerRef.Hit();
             }
             else
             {
@@ -163,7 +174,7 @@ namespace ThereBeBombs.Gameplay.Enemies
         {
             IsRunning = false;
             moveDirection = Vector3.Zero;
-            //character.SetVelocity(Vector3.Zero);
+            Character.SetVelocity(Vector3.Zero);
             MoveDestination = Entity.Transform.WorldMatrix.TranslationVector;
         }
 
@@ -190,10 +201,13 @@ namespace ThereBeBombs.Gameplay.Enemies
                 // Generate a new path using the navigation component
                 pathToDestination.Clear();
 
-                if (navigation.TryFindPath(destination, pathToDestination))
+                destination.Y = 0.0001f;
+
+                if (Navigation.TryFindPath(destination, pathToDestination))
                 {
                     // Skip the points that are too close to the enemy
                     WaypointIndex = 0;
+
                     while (!ReachedDestination && (CurrentWaypoint - Entity.Transform.WorldMatrix.TranslationVector).Length() < 0.25f)
                     {
                         WaypointIndex++;
@@ -253,6 +267,7 @@ namespace ThereBeBombs.Gameplay.Enemies
                 if (advance)
                 {
                     WaypointIndex++;
+
                     if (ReachedDestination)
                     {
                         // Final waypoint reached
@@ -272,8 +287,8 @@ namespace ThereBeBombs.Gameplay.Enemies
 
                 // Allow a very simple inertia to the character to make animation transitions more fluid
                 moveDirection = moveDirection * 0.85f + direction * moveSpeed * cornerSpeedMultiply * 0.15f;
-                //character.SetVelocity(moveDirection * speed);
-                Entity.Transform.Position += (MoveDestination * speed);
+                Character.SetVelocity(moveDirection * speed);
+                //Entity.Transform.Position += (MoveDestination * speed);
 
                 // Broadcast speed as per cent of the max speed
                 //RunSpeedEventKey.Broadcast(moveDirection.Length());
