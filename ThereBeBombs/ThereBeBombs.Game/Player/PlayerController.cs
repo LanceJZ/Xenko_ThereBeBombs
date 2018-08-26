@@ -59,6 +59,36 @@ namespace ThereBeBombs.Player
         /// </summary>
         [Display("Attack Cooldown")]
         public float AttackCooldown { get; set; } = 0.65f;
+        /// <summary>
+        /// Armor in percent of damage resistance.
+        /// </summary>
+        [Display("Armor Percent")]
+        public int ArmorPercent { get; set; } = 10;
+        /// <summary>
+        /// Armor health in points. At zero armor is useless.
+        /// </summary>
+        [Display("Armor Health")]
+        public int ArmorHealth { get; set; } = 20;
+        /// <summary>
+        /// Health Points. At zero character dies.
+        /// </summary>
+        [Display("Health Points")]
+        public int HealthPoints { get; set; } = 20;
+        /// <summary>
+        /// Amount of damage done per successful hit. This gets subtracted by a percent depending on the armor of the victim.
+        /// </summary>
+        [Display("Damage Amount")]
+        public int DamageAmount { get; set; } = 10;
+        /// <summary>
+        /// Percent chance to hit victim.
+        /// </summary>
+        [Display("To Hit Chance")]
+        public int ToHitChance { get; set; } = 25;
+        /// <summary>
+        /// Percent chance to avoid successful attack.
+        /// </summary>
+        [Display("Avoid Chance")]
+        public int AvoidChance { get; set; } = 25;
         // The PlayerController will propagate if it is attacking to the AnimationController
         //public static readonly EventKey<bool> IsAttackingEventKey = new EventKey<bool>();
         //Character Component
@@ -110,8 +140,10 @@ namespace ThereBeBombs.Player
 
         }
 
-        public void Hit()
+        public void HitAttempt(int damage)
         {
+            //Is attempt successful?
+
             //Action for being hit.
 
             System.Diagnostics.Debug.WriteLine("Player has been hit.");
@@ -136,7 +168,7 @@ namespace ThereBeBombs.Player
                 HaltMovement();
 
                 if (AttackEntity.Get<CockroachScript>() != null)
-                    AttackEntity.Get<CockroachScript>().Hit();
+                    AttackEntity.Get<CockroachScript>().HitAttempt(DamageAmount);
 
                 AttackEntity = null;
                 AttackTimer.Reset(AttackCooldown);

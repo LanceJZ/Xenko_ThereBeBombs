@@ -2600,10 +2600,11 @@ Hierarchy:
                         JumpSpeed: 5.0
                         Gravity: -10.0
                         ColliderShapes:
-                            7fb3030484fd845010732f5bd61515c4: !BoxColliderShapeDesc
-                                Is2D: false
-                                Size: {X: 8.0, Y: 4.0, Z: 24.0}
-                                LocalOffset: {X: 0.0, Y: 2.5, Z: 0.0}
+                            7fb3030484fd845010732f5bd61515c4: !CapsuleColliderShapeDesc
+                                Length: 20.0
+                                Radius: 4.0
+                                Orientation: UpZ
+                                LocalOffset: {X: 0.0, Y: 3.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                     a8f9a225404233d520f39f9e83aab796: !RigidbodyComponent
                         Id: f5672b30-f6e6-4758-9a12-0c0b6b0738c7
@@ -2803,7 +2804,7 @@ Hierarchy:
                 Components:
                     39c709a832f3f340b936f0c83b068505: !TransformComponent
                         Id: a809c739-f332-40f3-b936-f0c83b068505
-                        Position: {X: 0.0, Y: 20.0, Z: 0.0}
+                        Position: {X: 21.760643, Y: 21.2285633, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}

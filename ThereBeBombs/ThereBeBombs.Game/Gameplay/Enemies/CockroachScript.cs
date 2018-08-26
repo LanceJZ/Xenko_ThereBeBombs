@@ -42,11 +42,43 @@ namespace ThereBeBombs.Gameplay.Enemies
         /// Cooldown in seconds required for the character to recover from starting an attack until it can choose another action
         /// </summary>
         [Display("Attack Cooldown")]
-        public float AttackCooldown { get; set; } = 1.1f;
+        public float AttackCooldown { get; set; } = 1.25f;
+        /// <summary>
+        /// Armor in percent of damage resistance.
+        /// </summary>
+        [Display("Armor Percent")]
+        public int ArmorPercent { get; set; } = 10;
+        /// <summary>
+        /// Armor health in points. At zero armor is useless.
+        /// </summary>
+        [Display("Armor Health")]
+        public int ArmorHealth { get; set; } = 10;
+        /// <summary>
+        /// Health Points. At zero character dies.
+        /// </summary>
+        [Display("Health Points")]
+        public int HealthPoints { get; set; } = 10;
+        /// <summary>
+        /// Amount of damage done per successful hit. This gets subtracted by a percent depending on the armor of the victim.
+        /// </summary>
+        [Display("Damage Amount")]
+        public int DamageAmount { get; set; } = 10;
+        /// <summary>
+        /// Percent chance to hit victim.
+        /// </summary>
+        [Display("To Hit Chance")]
+        public int ToHitChance { get; set; } = 25;
+        /// <summary>
+        /// Percent chance to avoid successful attack.
+        /// </summary>
+        [Display("Avoid Chance")]
+        public int AvoidChance { get; set; } = 25;
+
         //Reference to player script.
         Player.PlayerController PlayerRef;
         // Allow some inertia to the movement
         Vector3 moveDirection = Vector3.Zero;
+        bool IsDead = false;
         bool IsRunning = false;
         bool IsSearching = true;
         float yawOrientation;
@@ -85,9 +117,13 @@ namespace ThereBeBombs.Gameplay.Enemies
 
         public override void Update()
         {
+            if (IsDead)
+                return;
+
             if (!IsRunning && !IsSearching)
             {
                 Attack();
+                Search();
             }
             else if (IsRunning && !IsSearching)
             {
@@ -114,8 +150,13 @@ namespace ThereBeBombs.Gameplay.Enemies
         {
         }
 
-        public void Hit()
+        public void HitAttempt(int damage)
         {
+            //Is attempt successful?
+
+
+            //Action for being hit.
+
             System.Diagnostics.Debug.WriteLine("Cockroach has been hit.");
 
         }
@@ -129,13 +170,27 @@ namespace ThereBeBombs.Gameplay.Enemies
 
             float length = differnceInLocation.Length();
 
-            if (length > 15)
+            if (length > 20)
+            {
+                HaltMovement();
+                IsSearching = true;
+                IsRunning = false;
+
                 return;
+            }
 
             HitResult result = this.GetSimulation().Raycast(start, target);
 
             if (result.Collider.Entity.Name == "PlayerCharacter")
+            {
                 SpotsPlayer(target);
+            }
+            else if (!IsSearching)
+            {
+                HaltMovement();
+                IsSearching = true;
+                IsRunning = false;
+            }
         }
 
         void Attack()
@@ -161,7 +216,7 @@ namespace ThereBeBombs.Gameplay.Enemies
                 AttackTimer.Reset(AttackCooldown);
                 //BiteCollision.Enabled = true;
                 System.Diagnostics.Debug.WriteLine("Cockroach Attacks.");
-                PlayerRef.Hit();
+                PlayerRef.HitAttempt();
             }
             else
             {
@@ -200,8 +255,6 @@ namespace ThereBeBombs.Gameplay.Enemies
             {
                 // Generate a new path using the navigation component
                 pathToDestination.Clear();
-
-                destination.Y = 0.0001f;
 
                 if (Navigation.TryFindPath(destination, pathToDestination))
                 {

@@ -39,7 +39,7 @@ namespace ThereBeBombs.Gameplay.Enemies
         {
             //Action for hitting player.
 
-            player.Hit();
+            player.HitAttempt();
         }
     }
 }

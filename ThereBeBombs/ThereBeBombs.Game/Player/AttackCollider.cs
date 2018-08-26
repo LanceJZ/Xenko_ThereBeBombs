@@ -36,7 +36,7 @@ namespace ThereBeBombs.Player
         {
             //Action for being hit.
 
-            cockroach.Hit();
+            cockroach.HitAttempt(10);
         }
     }
 }
